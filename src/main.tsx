@@ -6,6 +6,7 @@ import { store, persistor } from "./store/store";
 import { Elements } from "@stripe/react-stripe-js";
 import { stripePromise } from "./api/stripe.api";
 import { BrowserRouter } from "react-router-dom";
+
 import "./index.css";
 import App from "./App.tsx";
 
@@ -14,9 +15,7 @@ createRoot(document.getElementById("root")!).render(
     <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
     <BrowserRouter>
-
       <App />
-
     </BrowserRouter>
     </PersistGate>
     </Provider>

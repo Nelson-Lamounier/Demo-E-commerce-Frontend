@@ -88,7 +88,7 @@ const Footer = () => {
           </div>
         
           <div className="border-t border-gray-200 py-10">
-            <p className="text-sm text-gray-500">Copyright &copy; 2021 Your Company, Inc.</p>
+            <p className="text-sm text-gray-500">Copyright &copy; Nelson Web Developer</p>
           </div>
         </div>
         </footer>
