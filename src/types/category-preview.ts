@@ -10,7 +10,7 @@ export type Categories = {
 const Categories: Categories[] = [
     {
       name: 'Women',
-      description: 'Stylish activewear',
+      description: 'Stylish activewear.',
       imageSrc: 'https://dbsecommerce.s3.eu-west-1.amazonaws.com/images/woman/woman01.png',
       imageAlt: 'Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.',
       href: '#',

@@ -1,4 +1,4 @@
-import Categories from "../types/caregory-preview";
+import Categories from "../types/category-preview";
 
 const CategoryPreview = () => {
   return (

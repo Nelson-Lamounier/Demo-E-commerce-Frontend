@@ -3,6 +3,9 @@ import NavBar from "../components/navigation-bar";
 import homeData from "../types/home";
 import MotionEffect from "../utils/effect/motion";
 import CategoryPreview from "../components/category-preview";
+import Incentive from "../components/incentive";
+import Footer from "../components/footer.component";
+
 import Promo from "../components/promo";
 
 const Home = () => {
@@ -20,8 +23,10 @@ const Home = () => {
         <NavBar />
         <Hero />
         <MotionEffect/>
-        <CategoryPreview />
+        <CategoryPreview/>
         <Promo />
+        <Incentive />
+        <Footer />
       </div>
     </>
   );
