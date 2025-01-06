@@ -53,14 +53,20 @@ export const categorySlice = createSlice({
     },
     // Action to handle successful fetch
     fetchCategorySuccess(state, action: PayloadAction<Category[]>) {
+      console.log("Payload received:", action.payload);
+      console.log("State before update:", state.categories);
       state.categories = action.payload;
       state.isLoading = false;
       state.error = null;
+      console.log("State after update:", state.categories);
     },
     // Action to handle failed fetch
     fetchCategoryFailed(state, action: PayloadAction<Error>) {
+      console.log("Payload received:", action.payload);
+      console.log("State before update:", state.categories);
       state.isLoading = false;
       state.error = action.payload.message;
+      console.log("State after update:", state.categories);
     },
   },
   extraReducers: (builder) => {

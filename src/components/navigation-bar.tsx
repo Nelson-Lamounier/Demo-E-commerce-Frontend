@@ -1,4 +1,5 @@
 import { Fragment, useState } from "react";
+import { Link, Links } from "react-router-dom";
 
 import navigationData from "../types/navigation";
 
@@ -24,6 +25,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+
 
 const NavBar: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -127,12 +129,12 @@ const NavBar: React.FC = () => {
                 </a>
               </div>
               <div className="flow-root">
-                <a
-                  href="#"
+                <Link
+                  to="/signin"
                   className="-m-2 block p-2 font-medium text-gray-900"
                 >
                   Sign in
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -186,12 +188,12 @@ const NavBar: React.FC = () => {
               </form>
 
               <div className="flex items-center space-x-6">
-                <a
-                  href="#"
+                <Link
+                   to="/signin"
                   className="text-sm font-medium text-white hover:text-gray-100"
                 >
                   Sign in
-                </a>
+                </Link>
                 <a
                   href="#"
                   className="text-sm font-medium text-white hover:text-gray-100"
