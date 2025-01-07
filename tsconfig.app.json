@@ -7,6 +7,15 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "incremental": true, // Enable incremental compilation
+    "baseUrl": "./", // Root directory of your project
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@types/*": ["src/types/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@/*": ["src/*"] // Map @/ to src/
+    },
+    
+    
 
     /* Bundler mode */
     "moduleResolution": "bundler",

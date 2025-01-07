@@ -1,5 +1,4 @@
-
- import incentives from "../types/incentive.ts";
+import incentives from "@/types/incentive";
   
   
 const Incentive = () => {

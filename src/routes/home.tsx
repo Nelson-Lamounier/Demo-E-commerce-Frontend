@@ -1,12 +1,12 @@
 import Hero from "../components/hero";
-import NavBar from "../components/navigation-bar";
 import homeData from "../types/home";
 import MotionEffect from "../utils/effect/motion";
-import CategoryPreview from "../components/category-preview";
-import Incentive from "../components/incentive";
+import CategoryPreview from "@/pages/category/CategoryPreview";
+import Incentive from "@/pages/Incentive";
 import Footer from "../components/footer.component";
 
-import Promo from "../components/promo.component";
+import PromoHeader from "@/pages/promo/PromoHeader";
+
 
 const Home = () => {
   return (
@@ -23,7 +23,7 @@ const Home = () => {
         <Hero />
         <MotionEffect/>
         <CategoryPreview/>
-        <Promo />
+        <PromoHeader />
         <Incentive />
         <Footer />
       </div>

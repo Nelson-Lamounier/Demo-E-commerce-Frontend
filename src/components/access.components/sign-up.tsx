@@ -1,59 +1,66 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { GoogleLogin } from "@react-oauth/google";
+
 
 import CheckboxWithLink from "./check-box";
-
-import {
-  emailSignInStart,
-  googleSignInStart,
-} from "../../store/user/user.slice";
 import InputField from "./input-fields";
 
+import { signUpStart } from "../../store/user/user.slice";
+
 const defaultFormFields = {
+  name: "",
   email: "",
   password: "",
+  confirmPassword: "",
+  receiveEmails: false,
 };
 
-const SignInForm = () => {
-  const navigation = useNavigate();
+const SignUpForm = () => {
   const dispatch = useDispatch();
   const [formFields, setFormFields] = useState(defaultFormFields);
-  const { email, password } = formFields;
+  const { name, email, password, confirmPassword, receiveEmails } = formFields;
+  const navigate = useNavigate();
+
+  const [errors, setErrors] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value, type, checked } = e.target;
+    setFormFields({
+      ...formFields,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (password !== confirmPassword) {
+      setErrors({ ...errors, confirmPassword: "Passwords do not match" });
+      return;
+    }
     try {
-      dispatch(emailSignInStart({ email, password }));
+      dispatch(signUpStart({ email, password, username: name, receiveEmails }));
       resetFormFields();
-      navigation("/");
+      navigate("/");
     } catch (error) {
-      console.log("User sign in failed", error);
+      if (error) {
+        console.error("Signup Error:", error);
+        setErrors({ ...errors });
+      } else {
+        //Network error ot other issues
+        console.error("Network Error:", error);
+      }
     }
-  };
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormFields({ ...formFields, [name]: value });
-  };
-
-  const handleGoogleSuccess = (credentialResponse: any) => {
-    try {
-      const token = credentialResponse.credential;
-      dispatch(googleSignInStart(token));
-      navigation("/");
-    } catch (error) {
-      console.error("Failed to SignIn with Google", error);
-    }
-  };
-
-  const handleGoogleFailure = () => {
-    console.error("Google Sign-In Error");
   };
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,13 +76,22 @@ const SignInForm = () => {
           className="mx-auto h-10 w-auto"
         />
         <h2 className="mt-6 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
-          Sign in to your account
+          Create an Account
         </h2>
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
         <div className="bg-white px-6 py-12 shadow-sm sm:rounded-lg sm:px-12">
           <form onSubmit={handleSubmit} className="space-y-6">
+            <InputField
+              name="name"
+              type="text"
+              value={name}
+              label="Your Name"
+              autoComplete="email"
+              placeholder="Your Name"
+              onChange={handleChange}
+            />
             <InputField
               name="email"
               type="email"
@@ -91,8 +107,18 @@ const SignInForm = () => {
               type="password"
               value={password}
               label="Password"
-              autoComplete="current-password"
               placeholder="Password"
+              autoComplete="current-password"
+              onChange={handleChange}
+            />
+
+            <InputField
+              name="confirmPassword"
+              type="password"
+              value={password}
+              label="Confirm Password"
+              autoComplete="current-password"
+              placeholder="Confirm Password"
               onChange={handleChange}
             />
 
@@ -103,7 +129,7 @@ const SignInForm = () => {
               linkText="Forgot password?"
               linkHref="#"
               onChange={handleCheckboxChange}
-              checked={false} // Replace with a state value if needed
+              checked={receiveEmails}
             />
 
             <div>
@@ -111,7 +137,7 @@ const SignInForm = () => {
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-indigo-600"
               >
-                Sign in
+                Sign Up
               </button>
             </div>
           </form>
@@ -126,28 +152,16 @@ const SignInForm = () => {
               </div>
               <div className="relative flex justify-center text-sm/6 font-medium">
                 <span className="bg-white px-6 text-gray-900">
-                  Or continue with
-                </span>
-              </div>
-            </div>
-
-            <div className="mt-6 grid grid-cols-1 gap-4">
-              <GoogleLogin
-                onSuccess={handleGoogleSuccess}
-                onError={handleGoogleFailure}
-              />
-            </div>
-            <div className="relative flex justify-center text-sm/6 font-medium">
-                <span className="bg-white px-6 text-gray-900">
-                  Don't have an account?
+                  Already have an account?{" "}
                   <Link
                     style={{ cursor: "pointer", color: "blue" }}
-                    to="/signup"
+                    to="/signin"
                   >
-                    Create an account
+                    Log in
                   </Link>
                 </span>
               </div>
+            </div>
           </div>
         </div>
       </div>
@@ -155,4 +169,4 @@ const SignInForm = () => {
   );
 };
 
-export default SignInForm;
+export default SignUpForm;

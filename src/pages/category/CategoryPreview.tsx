@@ -1,14 +1,10 @@
-import { useState, useEffect, FC } from "react";
-import Categories from "../types/category-preview";
+import { useState, useEffect } from "react";
+import Categories from "@/types/category-preview";
 import { motion } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
-
-
+import { Link } from "react-router-dom";
 
 const CategoryPreview = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  
-
 
   const variants = {
     hidden: { opacity: 0 },
@@ -34,8 +30,8 @@ const CategoryPreview = () => {
           <h2 className="text-2xl font-bold text-gray-900">Collections</h2>
           <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0 ">
             {Categories.map((Category) => (
-              <div key={Category.name} className="group relative">
-                <div className="w-full rounded-lg bg-white relative object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-2/1 lg:aspect-square">
+              <div key={Category.name} className="group relative ">
+                <div className="w-full rounded-lg bg-white flow-root text-sm lg:relative object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-2/1 lg:aspect-square">
                   {Category.images.map((image, index) => (
                     <motion.img
                       key={index}
