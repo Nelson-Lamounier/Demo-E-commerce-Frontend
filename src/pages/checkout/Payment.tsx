@@ -1,28 +1,21 @@
-import { ChangeEvent, FC } from "react";
-import InputField from "@components/access.components/input-fields";
-import { StripeCardElement } from "@stripe/stripe-js";
-import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
+import {
+  CardNumberElement,
+  CardExpiryElement,
+  CardCvcElement,
+} from "@stripe/react-stripe-js";
 
-import { PaymentFields } from "@/types/checkout";
+import { paymentMethods } from "@/types/checkout";
 
-interface PaymentProps {
-  paymentFormFields: PaymentFields;
-  onInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
-}
-
-const Payment: FC<PaymentProps> = ({ paymentFormFields, onInputChange }) => {
-  const { cardNumber, nameOnCard, expirationDate, cvv } = paymentFormFields;
-
+const Payment = () => {
   return (
     <div className="mt-10 border-t border-gray-200 pt-10">
       <h2 className="text-lg font-medium text-gray-900">Payment</h2>
-
       <fieldset className="mt-4">
         <legend className="sr-only">Payment type</legend>
         <div className="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
           {paymentMethods.map((paymentMethod, paymentMethodIdx) => (
             <div key={paymentMethod.id} className="flex items-center">
-              <InputField
+              <input
                 defaultChecked={paymentMethodIdx === 0}
                 id={paymentMethod.id}
                 name="payment-type"
@@ -42,71 +35,77 @@ const Payment: FC<PaymentProps> = ({ paymentFormFields, onInputChange }) => {
 
       <div className="mt-6 grid grid-cols-4 gap-x-4 gap-y-6">
         <div className="col-span-4">
-          <label
-            htmlFor="card-number"
-            className="block text-sm/6 font-medium text-gray-700"
-          >
-            Card number
-          </label>
-          <div className="mt-2">
-            <InputField
-              id="card-number"
-              name="card-number"
-              type="text"
-              autoComplete="cc-number"
-              className="block w-full rounded-md bg-white px-3 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-            />
+          <div className="mb-4">
+            <label
+              htmlFor="card-number"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Card Number
+            </label>
+            <div className="border border-gray-300 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 hover:border-gray-500 focus-within:border-indigo-600 sm:text-sm/6 ">
+              <CardNumberElement
+                id="card-number"
+                options={{
+                  style: {
+                    base: {
+                      fontSize: "16px",
+                      color: "#32325d",
+                    },
+                  },
+                }}
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="col-span-4">
-          <label
-            htmlFor="name-on-card"
-            className="block text-sm/6 font-medium text-gray-700"
-          >
-            Name on card
-          </label>
-          <div className="mt-2">
-            <InputField
-              id="name-on-card"
-              name="name-on-card"
-              type="text"
-              autoComplete="cc-name"
-              className="block w-full rounded-md bg-white px-3 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-            />
-          </div>
-        </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label
+                htmlFor="card-expiry"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Expiry Date
+              </label>
+              <div className="border border-gray-300 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 hover:border-gray-500 focus-within:border-indigo-600 sm:text-sm/6 ">
+                <CardExpiryElement
+                  id="card-expiry"
+                  options={{
+                    style: {
+                      base: {
+                        fontSize: "16px",
+                        color: "#32325d",
+                      },
+                    },
+                  }}
+                />
+              </div>
+            </div>
 
-        <div className="col-span-3">
-          <div className="mt-2">
-            <InputField
-              name="expiration-date"
-              type="text"
-              autoComplete="cc-exp"
-              value={expirationDate}
-              autoComplete="Expiration Date"
-              placeholder="Expiration date (MM/YY)"
-              label="Expiration date (MM/YY)"
-              onChange={onInputChange}
-             
-            />
-          </div>
-        </div>
-
-        <div>
-          <div className="mt-2">
-            <InputField
-              name="cvc"
-              type="text"
-              value={cvv}
-              autoComplete="cvc"
-              placeholder="cvc"
-              label="Full Name"
-              onChange={onInputChange}
-            />
+            <div>
+              <label
+                htmlFor="card-cvc"
+                className="block text-sm font-medium text-gray-700"
+              >
+                CVC
+              </label>
+              <div className="border border-gray-300 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 hover:border-gray-500 focus-within:border-indigo-600 sm:text-sm/6 ">
+                <CardCvcElement
+                  id="card-cvc"
+                  options={{
+                    style: {
+                      base: {
+                        fontSize: "16px",
+                        color: "#32325d",
+                      },
+                    },
+                  }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
 };
+
+export default Payment;

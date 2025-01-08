@@ -22,7 +22,10 @@ createRoot(document.getElementById("root")!).render(
     <PersistGate loading={null} persistor={persistor}>
     <GoogleOAuthProvider clientId={clientId}>
     <BrowserRouter>
+    <Elements stripe={stripePromise}>
+
       <App />
+    </Elements>
     </BrowserRouter>
     </GoogleOAuthProvider>
     </PersistGate>

@@ -48,7 +48,7 @@ const ShippingInfo: FC<ShippingInfoProps> = ({    formFields,
           <div className="sm:col-span-2">
             <div className="mt-2">
               <InputField
-                name="Address1"
+                name="Line1"
                 type="text"
                 value={Line1}
                 label="Address"
@@ -62,7 +62,7 @@ const ShippingInfo: FC<ShippingInfoProps> = ({    formFields,
           <div className="sm:col-span-2">
             <div className="mt-2">
               <InputField
-                name="Address2"
+                name="Line2"
                 type="text"
                 value={Line2}
                 label=" Apartment, suite, etc."
@@ -76,7 +76,7 @@ const ShippingInfo: FC<ShippingInfoProps> = ({    formFields,
           <div>
             <div className="mt-2">
               <InputField
-                name="City"
+                name="city"
                 type="text"
                 value={city}
                 label="City"
@@ -101,7 +101,7 @@ const ShippingInfo: FC<ShippingInfoProps> = ({    formFields,
           <div>
             <div className="mt-2">
               <InputField
-                name="state"
+                name="county"
                 type="text"
                 value={county}
                 label=" State/Province"
@@ -129,7 +129,7 @@ const ShippingInfo: FC<ShippingInfoProps> = ({    formFields,
           <div className="sm:col-span-2">
             <div className="mt-2">
               <InputField
-                name="PhoneNumber"
+                name="phone"
                 type="Phone"
                 value={phone}
                 label=" Phone Number"

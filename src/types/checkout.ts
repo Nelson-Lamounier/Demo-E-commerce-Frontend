@@ -1,7 +1,7 @@
 export interface FormFields {
   email: string;
   FullName: string;
-  password: string;
+  password?: string;
   Line1: string;
   Line2: string;
   city: string;
@@ -18,7 +18,7 @@ export interface PaymentFields {
 }
 
 export type DeliveryMethod = {
-  id: number;
+  id: string;
   title: string;
   turnaround: string;
   price: number;
@@ -31,12 +31,12 @@ export type PaymentMethod = {
 
 export const deliveryMethods: DeliveryMethod[] = [
   {
-    id: 1,
+    id: "standard",
     title: "Standard",
     turnaround: "4–10 business days",
     price: 5.0,
   },
-  { id: 2, title: "Express", turnaround: "2–5 business days", price: 16.0 },
+  { id: "express", title: "Express", turnaround: "2–5 business days", price: 16.0 },
 ];
 
 export const paymentMethods: PaymentMethod[] = [

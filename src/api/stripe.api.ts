@@ -1,6 +1,6 @@
 import { loadStripe } from "@stripe/stripe-js";
 
 
-export const stripePromise = loadStripe(import.meta.env.REACT_APP_STRIPE_PUBLISHABLE_KEY as string);
+export const stripePromise = loadStripe(import.meta.env.VITE_API_STRIPE_PUBLISHABLE_KEY as string);
 
-console.log('Stripe API Key:', import.meta.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
+console.log('Stripe API Key:', import.meta.env.VITE_API_STRIPE_PUBLISHABLE_KEY);
