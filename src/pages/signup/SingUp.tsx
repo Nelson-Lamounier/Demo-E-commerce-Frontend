@@ -2,9 +2,8 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-
-import CheckboxWithLink from "./check-box";
-import InputField from "./input-fields";
+import CheckboxWithLink from "../../components/access.components/check-box";
+import InputField from "../../components/access.components/input-fields";
 
 import { signUpStart } from "../../store/user/user.slice";
 
@@ -115,21 +114,21 @@ const SignUpForm = () => {
             <InputField
               name="confirmPassword"
               type="password"
-              value={password}
+              value={confirmPassword}
               label="Confirm Password"
-              autoComplete="current-password"
               placeholder="Confirm Password"
               onChange={handleChange}
             />
 
             <CheckboxWithLink
               checkboxId="remember-me"
-              checkboxName="remember-me"
+              type="checkbox"
+              checkboxName="receiveEmails"
               label="Remember me"
-              linkText="Forgot password?"
-              linkHref="#"
               onChange={handleCheckboxChange}
-              checked={receiveEmails}
+              checked={false} // Replace with a state value if needed
+              linkText="Remember me"
+              linkHref={"#"}
             />
 
             <div>

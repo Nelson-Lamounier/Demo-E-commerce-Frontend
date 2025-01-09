@@ -5,8 +5,8 @@ export interface FormFields {
   Line1: string;
   Line2: string;
   city: string;
-  county: string;
-  postalCode: string;
+  state: string;
+  postal_code: string;
   phone: string;
 }
 

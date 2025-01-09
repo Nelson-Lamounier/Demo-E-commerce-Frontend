@@ -3,13 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { GoogleLogin } from "@react-oauth/google";
 
-import CheckboxWithLink from "./check-box";
+import CheckboxWithLink from "../../components/access.components/check-box";
 
 import {
   emailSignInStart,
   googleSignInStart,
 } from "../../store/user/user.slice";
-import InputField from "./input-fields";
+import InputField from "../../components/access.components/input-fields";
 
 const defaultFormFields = {
   email: "",
@@ -97,13 +97,14 @@ const SignInForm = () => {
             />
 
             <CheckboxWithLink
-              checkboxId="remember-me"
-              checkboxName="remember-me"
+            checkboxId="remember-me"
+              type="checkbox"
+              checkboxName="receiveEmails"
               label="Remember me"
-              linkText="Forgot password?"
-              linkHref="#"
               onChange={handleCheckboxChange}
               checked={false} // Replace with a state value if needed
+              linkText="Remember me"
+              linkHref={"#"}
             />
 
             <div>

@@ -1,12 +1,47 @@
+import React, { useEffect } from "react";
 import {
   CardNumberElement,
   CardExpiryElement,
   CardCvcElement,
+  useElements,
 } from "@stripe/react-stripe-js";
 
 import { paymentMethods } from "@/types/checkout";
 
-const Payment = () => {
+
+interface PaymentProps {
+  onPaymentDetailsChange: (details: {
+    cardNumberElement?: any;
+    cardExpiryElement?: any;
+    cardCvcElement?: any;
+  }) => void; // Callback to pass payment details to the parent
+}
+
+const Payment: React.FC<PaymentProps> = ({ onPaymentDetailsChange }) => {
+  const elements = useElements();
+
+  const handleCardDetailsChange = () => {
+    if (!elements) return;
+
+    // Get references to the card fields
+    const cardNumberElement = elements.getElement(CardNumberElement);
+    const cardExpiryElement = elements.getElement(CardExpiryElement);
+    const cardCvcElement = elements.getElement(CardCvcElement);
+
+    // Pass all card elements to the parent via the callback
+    onPaymentDetailsChange({
+      cardNumberElement,
+      cardExpiryElement,
+      cardCvcElement,
+    });
+  };
+
+  // UseEffect to handle initial setup when elements are mounted
+  useEffect(() => {
+    handleCardDetailsChange();
+  }, [elements]);
+
+  console.log(CardNumberElement, CardExpiryElement, CardCvcElement)
   return (
     <div className="mt-10 border-t border-gray-200 pt-10">
       <h2 className="text-lg font-medium text-gray-900">Payment</h2>
@@ -98,6 +133,7 @@ const Payment = () => {
                       },
                     },
                   }}
+                  onChange={handleCardDetailsChange} // Notify parent on change
                 />
               </div>
             </div>

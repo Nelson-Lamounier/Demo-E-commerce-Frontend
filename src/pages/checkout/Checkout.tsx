@@ -1,66 +1,57 @@
-import { useState, ChangeEvent, FormEvent, Fragment } from "react";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { useState, ChangeEvent, FormEvent } from "react";
 import { useSelector } from "react-redux";
-
 import { usePaymentHandler } from "@hooks/usePaymentHandler";
 
-import { FormFields } from "@/types/checkout";
-
-import { selectCartTotal } from "@/store/cart/cart.selector";
-
-import ShippingInfo from "./ShippingInfo";
 import ContactInformation from "./ContactInformation";
+import ShippingInfo from "./ShippingInfo";
 import DeliveryMethod from "./DeliveryMethod";
 import OrderSummary from "./OrderSummary";
 import Payment from "./Payment";
 
+import { selectCartTotal } from "@/store/cart/cart.selector";
 import { deliveryMethods } from "@/types/checkout";
+import { CardNumberElement } from "@stripe/react-stripe-js";
 
 const Checkout = () => {
+  const [paymentElements, setPaymentElements] = useState({
+    cardNumberElement: null,
+    cardExpiryElement: null,
+    cardCvcElement: null,
+  });
+  const cartTotal = useSelector(selectCartTotal); // Cart total from Redux store
+  const currentUser = useSelector((state: any) => state.user.currentUser); // Current user
+  const { handlePayment, isProcessingPayment } = usePaymentHandler(
+    cartTotal,
+    currentUser
+  );
+
   const [formFields, setFormFields] = useState({
     email: "",
     FullName: "",
     Line1: "",
     Line2: "",
     city: "",
-    county: "",
-    postalCode: "",
+    state: "",
+    postal_code: "",
     phone: "",
   });
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedDeliveryMethod, setSelectedDeliveryMethod] = useState("");
   const [deliveryFee, setDeliveryFee] = useState(0);
 
-  const [paymentDetails, setPaymentDetails] = useState({
-    cardComplete: false,
-  });
-
-  const stripe = useStripe();
-  const elements = useElements();
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (!stripe || !elements) {
-      alert("Stripe is not loaded yet.");
-      return;
-    }
-
-    const cardElement = elements.getElement("card");
-    if (!cardElement) {
-      alert("Card details not entered.");
-      return;
-    }
-
-    // Perform the payment logic
-    console.log("Card details are valid:", cardElement);
+  // Handle form field changes
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormFields((prev) => ({ ...prev, [name]: value }));
   };
 
-//   const [selectedDeliveryMethod, setSelectedDeliveryMethod] = useState(
-//     DeliveryMethod[0]
-//   );
+  // Handle country selection
+  const handleCountryChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCountry(e.target.value);
+  };
 
-const handleDeliveryMethodChange = (value: string) => {
+  // Handle delivery method selection
+  const handleDeliveryMethodChange = (value: string) => {
     setSelectedDeliveryMethod(value);
   };
 
@@ -68,14 +59,43 @@ const handleDeliveryMethodChange = (value: string) => {
     setDeliveryFee(fee);
   };
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormFields((prev) => ({ ...prev, [name]: value }));
+  // Validate form fields before submission
+
+  const handlePaymentDetailsChange = (details: any) => {
+    setPaymentElements(details);
+  }
+
+  // Handle form submission
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+
+    const { cardNumberElement } = paymentElements;
+    if (!cardNumberElement) {
+      console.error("No card number element!");
+      return;
+    }
+
+    try {
+      // Construct shipping details
+      const shippingDetails = {
+        name: formFields.FullName,
+        address: {
+          line1: formFields.Line1,
+          line2: formFields.Line2 || "", // Default to empty if not provided
+          city: formFields.city,
+          state: formFields.state || "", // Default to empty if not provided
+          postal_code: formFields.postal_code,
+          country: selectedCountry || "IE", // Default to "IE" if not selected
+        },
+        phone: formFields.phone,
+      };
+      await handlePayment(shippingDetails, cardNumberElement);
+    } catch (error: any) {
+      console.error("Checkout Error:", error);
+    }
   };
 
-  const handleCountryChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCountry(e.target.value);
-  };
   return (
     <main className="mx-auto max-w-7xl px-4 pt-16 pb-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-2xl lg:max-w-none">
@@ -86,26 +106,29 @@ const handleDeliveryMethodChange = (value: string) => {
           className="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16"
         >
           <div>
+            {/* Contact Information */}
             <ContactInformation
               email={formFields.email}
               onInputChange={handleInputChange}
             />
+            {/* Shipping Information */}
             <ShippingInfo
               formFields={formFields}
               selectedCountry={selectedCountry}
               onInputChange={handleInputChange}
               onCountryChange={handleCountryChange}
             />
+            {/* Delivery Method */}
             <DeliveryMethod
               selectedDeliveryMethod={selectedDeliveryMethod}
               onInputChange={handleDeliveryMethodChange}
               onFeeChange={handleFeeChange}
             />
             {/* Payment */}
-            <Payment />
+            <Payment onPaymentDetailsChange={handlePaymentDetailsChange} />
           </div>
-          {/* Order summary */}
-          <OrderSummary  deliveryFee={deliveryFee}/>
+          {/* Order Summary */}
+          <OrderSummary deliveryFee={deliveryFee} />
         </form>
       </div>
     </main>

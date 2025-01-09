@@ -20,7 +20,7 @@ const ShippingInfo: FC<ShippingInfoProps> = ({    formFields,
     onInputChange,
     onCountryChange,
 }) => {
-    const { FullName, Line1, Line2, city, county, postalCode, phone } =
+    const { FullName, Line1, Line2, city, state, postal_code, phone } =
     formFields;
 
 
@@ -101,9 +101,9 @@ const ShippingInfo: FC<ShippingInfoProps> = ({    formFields,
           <div>
             <div className="mt-2">
               <InputField
-                name="county"
+                name="state"
                 type="text"
-                value={county}
+                value={state}
                 label=" State/Province"
                 autoComplete="State/Province"
                 placeholder="State/Province"
@@ -115,12 +115,12 @@ const ShippingInfo: FC<ShippingInfoProps> = ({    formFields,
           <div>
             <div className="mt-2">
               <InputField
-                name="postalCode"
+                name="postal_code"
                 type="text"
-                value={postalCode}
+                value={postal_code}
                 label=" Postal Code"
-                autoComplete="Address Line 2"
-                placeholder="Postal Code"
+                autoComplete="postal_code"
+                placeholder="postal_code"
                 onChange={onInputChange}
               />
             </div>

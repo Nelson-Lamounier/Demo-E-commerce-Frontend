@@ -1,22 +1,24 @@
 import { useState } from "react";
-import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
+import { useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
-import { StripeCardElement } from "@stripe/stripe-js";
 
-const ifValidCardElement = (
-  card: StripeCardElement | null
-): card is StripeCardElement => card !== null;
+import { ifValidCardNumberElement } from "@/utils/helpers";
+
+
 
 export const usePaymentHandler = (amount: number, currentUser: any) => {
   const stripe = useStripe();
   const elements = useElements();
+
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
-  const handlePayment = async (shippingDetails: any) => {
+  const handlePayment = async (
+    shippingDetails: any,
+    cardNumberElement: any
+  ) => {
     if (!stripe || !elements) {
       throw new Error("Stripe has not loaded correctly.");
     }
-
     setIsProcessingPayment(true);
 
     try {
@@ -32,15 +34,16 @@ export const usePaymentHandler = (amount: number, currentUser: any) => {
       );
 
       const clientSecret = data.paymentIntent.client_secret;
-      const cardDetails = elements.getElement(CardElement);
-
-      if (!ifValidCardElement(cardDetails)) {
-        throw new Error("Invalid card element.");
+      // Use our new function to confirm it's valid
+      if (!ifValidCardNumberElement(cardNumberElement)) {
+        throw new Error(
+          "Invalid cardNumberElement. It may not be mounted yet."
+        );
       }
 
       const paymentResult = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
-          card: cardDetails,
+          card: cardNumberElement,
           billing_details: {
             name: currentUser ? currentUser.displayName : "Guest",
           },
@@ -57,9 +60,11 @@ export const usePaymentHandler = (amount: number, currentUser: any) => {
       ) {
         alert("Payment Successful!");
       }
+      return paymentResult;
     } catch (error: any) {
       console.error("Payment Error:", error);
       alert(error.message || "There was an error processing your payment.");
+      throw error;
     } finally {
       setIsProcessingPayment(false);
     }

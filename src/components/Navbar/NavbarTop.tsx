@@ -1,8 +1,24 @@
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { useState, useEffect } from "react";
 import navigationData from "@/types/navigation";
 
+import { selectCurrentUser } from "@/store/user/user.selector";
+import { signOutStart } from "@/store/user/user.slice";
+
 const NavbarTop = () => {
+  const dispatch = useDispatch();
+  const currentUser = useSelector(selectCurrentUser);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    // Synchronize authentication state with localStorage
+    const token = localStorage.getItem("token");
+    setIsAuthenticated(!!token);
+  }, []);
+
+  const signOutUser = () => dispatch(signOutStart());
   return (
     <>
       {/* Top navigation */}
@@ -29,18 +45,32 @@ const NavbarTop = () => {
           </form>
 
           <div className="flex items-center space-x-6">
-            <Link
-              to="/signin"
-              className="text-sm font-medium text-white hover:text-gray-100"
-            >
-              Sign in
-            </Link>
-            <Link
-              to="/signup"
-              className="text-sm font-medium text-white hover:text-gray-100"
-            >
-              Create an account
-            </Link>
+            {!currentUser ? (
+              <>
+                <Link
+                  to="/signin"
+                  className="text-sm font-medium text-white hover:text-gray-100"
+                >
+                  Sign in
+                </Link>
+                <Link
+                  to="/signup"
+                  className="text-sm font-medium text-white hover:text-gray-100"
+                >
+                  Create an account
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/"
+                  onClick={signOutUser}
+                  className="text-sm font-medium text-white hover:text-gray-100"
+                >
+                  Logo out
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

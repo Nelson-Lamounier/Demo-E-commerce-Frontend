@@ -19,16 +19,15 @@ if (!clientId) {
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-    <GoogleOAuthProvider clientId={clientId}>
-    <BrowserRouter>
-    <Elements stripe={stripePromise}>
-
-      <App />
-    </Elements>
-    </BrowserRouter>
-    </GoogleOAuthProvider>
-    </PersistGate>
+      <PersistGate loading={null} persistor={persistor}>
+        <GoogleOAuthProvider clientId={clientId}>
+          <BrowserRouter>
+            <Elements stripe={stripePromise}>
+              <App />
+            </Elements>
+          </BrowserRouter>
+        </GoogleOAuthProvider>
+      </PersistGate>
     </Provider>
   </StrictMode>
 );
