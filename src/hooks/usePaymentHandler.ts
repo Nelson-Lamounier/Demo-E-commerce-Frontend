@@ -59,6 +59,7 @@ export const usePaymentHandler = (amount: number, currentUser: any) => {
         paymentResult.paymentIntent.status === "succeeded"
       ) {
         alert("Payment Successful!");
+        
       }
       return paymentResult;
     } catch (error: any) {

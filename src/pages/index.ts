@@ -1,2 +1,3 @@
-export * from "./singin/SignIn.tsx"
-export * from "./singin/SignUp.tsx"
+export * from "./singin/SignIn"
+export * from "./signup/SingUp"
+export * from "./order/OrderConfirmation"

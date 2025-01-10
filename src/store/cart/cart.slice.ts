@@ -63,6 +63,9 @@ const removeCartItem = (
 };
 
 // Utility function to clear an item from the cart
+/* 	1.	Takes the entire cart array (cartItems).
+	2.	Takes the item to remove (cartItemToClear).
+	3.	Returns a new array with that item removed.*/
 export const clearCartItem = (
   cartItems: CartItem[],
   cartItemToClear: CartItem
@@ -87,6 +90,9 @@ export const cartSlice = createSlice({
     clearItemFromCart(state, action: PayloadAction<CartItem>) {
       state.cartItems = clearCartItem(state.cartItems, action.payload);
     },
+    clearCart(state) {
+      state.cartItems = [];
+    }
   },
 });
 
@@ -95,6 +101,7 @@ export const {
   addItemToCart,
   removeItemFromCart,
   clearItemFromCart,
+  clearCart,
 } = cartSlice.actions;
 
 export const cartReducer = cartSlice.reducer;

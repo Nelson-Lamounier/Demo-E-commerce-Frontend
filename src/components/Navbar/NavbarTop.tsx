@@ -19,6 +19,7 @@ const NavbarTop = () => {
   }, []);
 
   const signOutUser = () => dispatch(signOutStart());
+
   return (
     <>
       {/* Top navigation */}

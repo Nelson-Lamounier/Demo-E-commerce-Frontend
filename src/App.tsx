@@ -7,6 +7,7 @@ import Shop from "./routes/shop.component";
 import SignInForm from "./pages/singin/SignIn";
 import SignUpForm from "./pages/signup/SingUp";
 import Checkout from "@/pages/checkout"
+import OrderConfirmation from "@/pages/order/OrderConfirmation";
 
 import { checkUserSession } from "@/store";
 
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="signin" element={<SignInForm />} />
             <Route path="signup" element={<SignUpForm />} />
             <Route path="checkout" element={<Checkout />} />
+            <Route path="order-confirmation" element={<OrderConfirmation />} />
           </Route>
         </Routes>
       </ErrorBoundary>

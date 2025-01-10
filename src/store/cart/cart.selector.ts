@@ -4,6 +4,8 @@ import { RootState } from "../store";
 
 import { CartState } from "./cart.slice";
 
+
+// Retrieves the cart slice (CartState) from the root Redux state.
 export const selectCardReducer = (state: RootState): CartState => state.cart;
 
 export const selectCartItems = createSelector(

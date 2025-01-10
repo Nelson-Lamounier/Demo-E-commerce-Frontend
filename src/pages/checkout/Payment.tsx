@@ -40,8 +40,7 @@ const Payment: React.FC<PaymentProps> = ({ onPaymentDetailsChange }) => {
   useEffect(() => {
     handleCardDetailsChange();
   }, [elements]);
-
-  console.log(CardNumberElement, CardExpiryElement, CardCvcElement)
+  
   return (
     <div className="mt-10 border-t border-gray-200 pt-10">
       <h2 className="text-lg font-medium text-gray-900">Payment</h2>

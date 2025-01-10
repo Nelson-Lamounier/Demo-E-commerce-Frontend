@@ -31,13 +31,13 @@ const CategoryPreview = () => {
           <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0 ">
             {Categories.map((Category) => (
               <div key={Category.name} className="group relative ">
-                <div className="w-full rounded-lg bg-white flow-root text-sm lg:relative object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-2/1 lg:aspect-square">
+                <div className="w-full  rounded-lg bg-white flow-root text-sm lg:relative object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-2/1 lg:aspect-square below-md:h-[50rem]">
                   {Category.images.map((image, index) => (
                     <motion.img
                       key={index}
                       alt={image.imageAlt}
                       src={image.imageSrc}
-                      className="absolute top-0 left-0  object-cover"
+                      className="absolute top-0 left-0  object-cover h-auto "
                       variants={variants}
                       custom={index} // Pass index for dynamic delay
                       initial="hidden" // Start with hidden variant

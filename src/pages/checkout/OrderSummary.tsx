@@ -12,8 +12,6 @@ import {
 type OrderSummaryProps = { deliveryFee: number };
 
 import {
-  ArrowLongRightIcon,
-  ArrowLongLeftIcon,
   TrashIcon, ChevronDoubleRightIcon, ChevronDoubleLeftIcon
 } from "@heroicons/react/20/solid";
 

@@ -5,6 +5,7 @@ export type FeaturedItem = {
   href: string;
   imageSrc: string;
   imageAlt: string;
+  categoryPath: string;
 };
 
 export type Category = {
@@ -32,26 +33,31 @@ const navigationData: NavigationData = {
         {
           name: 'New Arrivals',
           href: '#',
-          imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-01.jpg',
+          imageSrc: 'https://freelancer-websites.s3.eu-west-1.amazonaws.com/gymbs-ecommerce/preview/women/cloths/women-cloths6.png',
           imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
+          categoryPath:"Arrivals01",
         },
+        
         {
           name: 'Basic Tees',
           href: '#',
-          imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-02.jpg',
+          imageSrc: 'https://freelancer-websites.s3.eu-west-1.amazonaws.com/gymbs-ecommerce/preview/women/accesorios/women-accesorios5.png',
           imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
+          categoryPath:"category/basic"
         },
         {
           name: 'Accessories',
           href: '#',
-          imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-03.jpg',
+          imageSrc: 'https://freelancer-websites.s3.eu-west-1.amazonaws.com/gymbs-ecommerce/preview/women/accesorios/women-accesorios3.png',
           imageAlt: 'Model wearing minimalist watch with black wristband and white watch face.',
+          categoryPath:"Accessories01"
         },
         {
           name: 'Carry',
           href: '#',
-          imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-04.jpg',
+          imageSrc: 'https://freelancer-websites.s3.eu-west-1.amazonaws.com/gymbs-ecommerce/preview/women/accesorios/women-accesorios9.png',
           imageAlt: 'Model opening tan leather long wallet with credit card pockets and cash pouch.',
+          categoryPath:"Carry01"
         },
       ],
     },
@@ -61,28 +67,32 @@ const navigationData: NavigationData = {
         {
           name: 'New Arrivals',
           href: '#',
-          imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/mega-menu-01-men-category-01.jpg',
+          imageSrc: 'https://freelancer-websites.s3.eu-west-1.amazonaws.com/gymbs-ecommerce/preview/men/cloths/mens-cloth21.png',
           imageAlt: 'Hats and sweaters on wood shelves next to various colors of t-shirts on hangers.',
+          categoryPath:"Arrivals02"
         },
         {
           name: 'Basic Tees',
           href: '#',
-          imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/mega-menu-01-men-category-02.jpg',
+          imageSrc: 'https://freelancer-websites.s3.eu-west-1.amazonaws.com/gymbs-ecommerce/preview/men/basic/men-basic1.png',
           imageAlt: 'Model wearing light heather gray t-shirt.',
+          categoryPath:"Basic02"
         },
         {
           name: 'Accessories',
           href: '#',
-          imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/mega-menu-01-men-category-03.jpg',
+          imageSrc: 'https://freelancer-websites.s3.eu-west-1.amazonaws.com/gymbs-ecommerce/preview/men/accesorios/mens-accessorios1.png',
           imageAlt:
             'Grey 6-panel baseball hat with black brim, black mountain graphic on front, and light heather gray body.',
+            categoryPath:"Accessories02"
         },
         {
           name: 'Carry',
           href: '#',
-          imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/mega-menu-01-men-category-04.jpg',
+          imageSrc: 'https://freelancer-websites.s3.eu-west-1.amazonaws.com/gymbs-ecommerce/preview/men/accesorios/mens-accessorios2.png',
           imageAlt:
             'Model putting folded cash into slim card holder olive leather wallet with hand stitching.',
+            categoryPath:"Carry02"
         },
       ],
     },

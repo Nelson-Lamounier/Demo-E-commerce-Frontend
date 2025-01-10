@@ -1,6 +1,9 @@
 import { useState, ChangeEvent, FormEvent } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { usePaymentHandler } from "@hooks/usePaymentHandler";
+import { clearCart } from "@/store";
+import { useNavigate } from "react-router-dom";
+import { selectCartItems } from "@/store/cart/cart.selector";
 
 import ContactInformation from "./ContactInformation";
 import ShippingInfo from "./ShippingInfo";
@@ -9,10 +12,10 @@ import OrderSummary from "./OrderSummary";
 import Payment from "./Payment";
 
 import { selectCartTotal } from "@/store/cart/cart.selector";
-import { deliveryMethods } from "@/types/checkout";
-import { CardNumberElement } from "@stripe/react-stripe-js";
 
 const Checkout = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [paymentElements, setPaymentElements] = useState({
     cardNumberElement: null,
     cardExpiryElement: null,
@@ -38,6 +41,7 @@ const Checkout = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedDeliveryMethod, setSelectedDeliveryMethod] = useState("");
   const [deliveryFee, setDeliveryFee] = useState(0);
+  const cartItems = useSelector(selectCartItems); // or wherever you're storing them
 
   // Handle form field changes
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -63,12 +67,34 @@ const Checkout = () => {
 
   const handlePaymentDetailsChange = (details: any) => {
     setPaymentElements(details);
-  }
+  };
+
+  const clearLocalStates = () => {
+    // Reset form fields
+    setFormFields({
+      email: "",
+      FullName: "",
+      Line1: "",
+      Line2: "",
+      city: "",
+      state: "",
+      postal_code: "",
+      phone: "",
+    });
+    setSelectedCountry("");
+    setSelectedDeliveryMethod("");
+    setDeliveryFee(0);
+    // Reset payment elements
+    setPaymentElements({
+      cardNumberElement: null,
+      cardExpiryElement: null,
+      cardCvcElement: null,
+    });
+  };
 
   // Handle form submission
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
 
     const { cardNumberElement } = paymentElements;
     if (!cardNumberElement) {
@@ -90,7 +116,39 @@ const Checkout = () => {
         },
         phone: formFields.phone,
       };
-      await handlePayment(shippingDetails, cardNumberElement);
+
+      const paymentResult = await handlePayment(
+        shippingDetails,
+        cardNumberElement
+      );
+      if (
+        paymentResult &&
+        paymentResult.paymentIntent &&
+        paymentResult.paymentIntent.status === "succeeded"
+      ) {
+        // Temporarily cast the paymentIntent to 'any' so TS doesn't complain
+        const last4 = (paymentResult.paymentIntent as any)?.charges?.data[0]
+          ?.payment_method_details?.card?.last4;
+        const finalOrderData = {
+          orderId: paymentResult.paymentIntent.id,
+          shippingDetails,
+          cartTotal,
+          cartItems: cartItems,
+          deliveryFee,
+          selectedDeliveryMethod,
+          cardLast4: last4, // Store only the last 4 digits
+          // ...any other details
+        };
+
+        // 2) Store in localStorage
+        localStorage.setItem("finalOrder", JSON.stringify(finalOrderData));
+        console.log("Storing final order in localStorage:", finalOrderData);
+
+        // 3) Navigate + Clear
+        navigate("/order-confirmation");
+        clearLocalStates();
+        dispatch(clearCart());
+      }
     } catch (error: any) {
       console.error("Checkout Error:", error);
     }

@@ -1,20 +1,26 @@
 import { useDispatch, useSelector } from "react-redux";
-
+import { useState } from "react";
 import { selectCartCount, selectIsCartOpen } from "@/store/cart/cart.selector";
 import { setIsCartOpen } from "@/store/cart/cart.slice";
 
 import CartDropdown from "@components/Cart/CartDropdown";
+
 
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 
 
 const ShoppingCard = () => {
     const dispatch = useDispatch();
-
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const cartCount = useSelector(selectCartCount)
     const isCartOpen = useSelector(selectIsCartOpen)
 
+
     const toggleIsCartOpen = () => dispatch(setIsCartOpen(!isCartOpen))
+
+    const closeMenu = () => {
+      setIsMenuOpen(false);
+    };
   return (
     <>
       {/* Cart */}

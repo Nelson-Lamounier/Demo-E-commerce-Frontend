@@ -1,4 +1,6 @@
 import navigationData from "@/types/navigation";
+import { Link } from "react-router-dom";
+import Categories from "@/types/category-preview";
 import {
   Popover,
   PopoverButton,
@@ -41,8 +43,8 @@ const FlyoutMenus = () => {
                               src={item.imageSrc}
                               className="aspect-square w-full rounded-md bg-gray-100 object-cover group-hover:opacity-75"
                             />
-                            <a
-                              href={item.href}
+                            <Link
+                              to={`/category/${item.categoryPath.toLowerCase()}`}
                               className="mt-4 block font-medium text-gray-900"
                             >
                               <span
@@ -50,7 +52,7 @@ const FlyoutMenus = () => {
                                 className="absolute inset-0 z-10"
                               />
                               {item.name}
-                            </a>
+                            </Link>
                             <p aria-hidden="true" className="mt-1">
                               Shop now
                             </p>
@@ -64,13 +66,12 @@ const FlyoutMenus = () => {
             ))}
 
             {navigationData.pages.map((page) => (
-              <a
-                key={page.name}
-                href={page.href}
+              <Link 
+              to={`/category/${page.name.toLowerCase()}`}
                 className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
               >
                 {page.name}
-              </a>
+              </Link>
             ))}
           </div>
         </PopoverGroup>
