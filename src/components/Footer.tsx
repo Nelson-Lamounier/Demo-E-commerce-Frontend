@@ -1,4 +1,6 @@
-import footerNavigation from "../types/footer.ts"
+import footerNavigation from "../types/Footer.ts"
+
+
 
 const Footer = () => {
     return (
@@ -66,13 +68,15 @@ const Footer = () => {
               <h3 className="text-sm font-medium text-gray-900">Sign up for our newsletter</h3>
               <p className="mt-6 text-sm text-gray-500">The latest deals and savings, sent to your inbox weekly.</p>
               <form className="mt-2 flex sm:max-w-md">
+
                 <input
                   id="email-address"
                   type="text"
                   required
                   autoComplete="email"
                   aria-label="Email address"
-                  className="block w-full rounded-md bg-white px-4 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                  placeholder="Email address"
+                  className=" border border-gray-300 block w-full rounded-md bg-white px-4 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                 />
         
                 <div className="ml-4 shrink-0">

@@ -2,21 +2,17 @@
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" },
-    
+    { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "baseUrl": "./", // Root directory of your project
+    "baseUrl": "./",
+    "types": ["vitest/globals"], // Includes Vitest globals like describe, it, expect
     "paths": {
       "@/*": ["src/*"], // Map @/ to src/
       "@components/*": ["src/components/*"],
       "@types/*": ["src/types/*"],
-      "@hooks/*": ["src/hooks/*"]
+      "@hooks/*": ["src/hooks/*"],
+      "@pages/*": ["src/hooks/*"]
     }
-  },
-  "paths": {
-  "@components/*": ["src/components/*"],
-  "@types/*": ["src/types/*"],
-  "@hooks/*": ["src/hooks/*"]
-}
+  }
 }

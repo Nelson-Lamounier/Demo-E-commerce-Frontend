@@ -3,13 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { GoogleLogin } from "@react-oauth/google";
 
-import CheckboxWithLink from "../../components/access.components/check-box";
+
+
+import {CheckboxWithLink, InputField} from "@/components"
 
 import {
   emailSignInStart,
   googleSignInStart,
 } from "../../store/user/user.slice";
-import InputField from "../../components/access.components/input-fields";
+
 
 const defaultFormFields = {
   email: "",

@@ -1,12 +1,12 @@
 import { useState } from "react";
-
 import MobileNavbar from "./MobileBar";
 import NavbarTop from "./NavbarTop";
 import FlyoutMenus from "./FlyoutMenu";
 import MobileSearchBar from "./MobileSearchBar";
 import ShoppingCard from "./ShoppingCart";
-import LogoSmall from "@components/logo/LogoSm";
-import Logo from "@components/logo/Logo";
+
+import{Logo, LogoSmall} from "@/components";
+
 
 
 import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline";

@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import HeaderCatalog from "./category-header";
+import HeaderCatalog from "./CategoryHeader";
 
 
 import {
   selectCategoriesMap,
   selectCategoriesIsLoading,
 } from "../../store/categories/category.selector";
-import ProductCard from "./product-card.component";
+import ProductCard from "./ProductCard";
 
 type CategoryRouteParams = {
   category: string;
@@ -33,7 +33,7 @@ const Category = () => {
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
           <h2 className="text-xl font-bold text-gray-900">
-            Customers also bought
+        PRODUCTS
           </h2>
 
           <div className="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">

@@ -41,14 +41,14 @@ const navigationData: NavigationData = {
         {
           name: 'Basic Tees',
           href: '#',
-          imageSrc: 'https://freelancer-websites.s3.eu-west-1.amazonaws.com/gymbs-ecommerce/preview/women/accesorios/women-accesorios5.png',
+          imageSrc: 'https://freelancer-websites.s3.eu-west-1.amazonaws.com/gymbs-ecommerce/preview/women/basic/women-basic9.png',
           imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
-          categoryPath:"category/basic"
+          categoryPath:"Basic01"
         },
         {
           name: 'Accessories',
           href: '#',
-          imageSrc: 'https://freelancer-websites.s3.eu-west-1.amazonaws.com/gymbs-ecommerce/preview/women/accesorios/women-accesorios3.png',
+          imageSrc: 'https://freelancer-websites.s3.eu-west-1.amazonaws.com/gymbs-ecommerce/preview/women/accesories/women-accesories11.png',
           imageAlt: 'Model wearing minimalist watch with black wristband and white watch face.',
           categoryPath:"Accessories01"
         },
@@ -72,7 +72,7 @@ const navigationData: NavigationData = {
           categoryPath:"Arrivals02"
         },
         {
-          name: 'Basic Tees',
+          name: 'Basic Utils',
           href: '#',
           imageSrc: 'https://freelancer-websites.s3.eu-west-1.amazonaws.com/gymbs-ecommerce/preview/men/basic/men-basic1.png',
           imageAlt: 'Model wearing light heather gray t-shirt.',
@@ -81,7 +81,7 @@ const navigationData: NavigationData = {
         {
           name: 'Accessories',
           href: '#',
-          imageSrc: 'https://freelancer-websites.s3.eu-west-1.amazonaws.com/gymbs-ecommerce/preview/men/accesorios/mens-accessorios1.png',
+          imageSrc: 'https://freelancer-websites.s3.eu-west-1.amazonaws.com/gymbs-ecommerce/preview/men/wallet/mens-wallet2.png',
           imageAlt:
             'Grey 6-panel baseball hat with black brim, black mountain graphic on front, and light heather gray body.',
             categoryPath:"Accessories02"

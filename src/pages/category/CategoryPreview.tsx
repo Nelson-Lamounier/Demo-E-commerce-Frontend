@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Categories from "@/types/category-preview";
+import {Categories} from "@/types";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 

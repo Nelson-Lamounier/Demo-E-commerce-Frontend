@@ -1,4 +1,4 @@
-import promoImages from "@/types/promo";
+import {promoImages} from "@/types"
 
 const PromoImages = () => {
   return (

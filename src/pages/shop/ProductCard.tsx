@@ -3,15 +3,13 @@ import { useDispatch } from "react-redux";
 
 import { addItemToCart } from "../../store/cart/cart.slice";
 import { CategoryItem } from "../../store/categories/category.slice";
-import HeaderCatalog from "./category-header";
-
 
 type ProductCardProps = {
   product: CategoryItem;
 };
 
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
-  const { name, price, ImageUrl } = product;
+  const { name, price, ImageUrl, description } = product;
   const dispatch = useDispatch();
 
   const addProductToCart = () => dispatch(addItemToCart(product));
@@ -31,12 +29,20 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             <h3 className="text-sm font-medium text-gray-900">{name}</h3>
             <p className="mt-1 text-sm text-gray-500"></p>
           </div>
+          <div className="relative mt-4">
+            <h3 className="text-sm font-small text-gray-400 mt-2">
+              {description}
+            </h3>
+            <p className="mt-1 text-sm text-gray-500"></p>
+          </div>
           <div className="absolute inset-x-0 top-0 flex h-72 items-end justify-end overflow-hidden rounded-lg p-4">
             <div
               aria-hidden="true"
               className="absolute inset-x-0 bottom-0 h-36 bg-linear-to-t from-black opacity-50"
             />
-            <p className="relative text-lg font-semibold text-white">{price}</p>
+            <p className="relative text-sm font-semibold text-black bg-gray-50 p-1 rounded-md">
+              €{price}
+            </p>
           </div>
         </div>
         <div className="mt-6">

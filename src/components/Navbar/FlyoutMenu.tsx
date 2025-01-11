@@ -1,6 +1,5 @@
-import navigationData from "@/types/navigation";
+import {navigationData} from "@/types";
 import { Link } from "react-router-dom";
-import Categories from "@/types/category-preview";
 import {
   Popover,
   PopoverButton,
@@ -67,7 +66,7 @@ const FlyoutMenus = () => {
 
             {navigationData.pages.map((page) => (
               <Link 
-              to={`/category/${page.name.toLowerCase()}`}
+              to={'#'}
                 className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
               >
                 {page.name}

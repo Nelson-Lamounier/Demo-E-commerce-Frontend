@@ -1,5 +1,5 @@
 import { FC, ChangeEvent} from "react";
-import InputField from "@components/access.components/input-fields";
+import InputField from "@components/form/InputFields";
 
 interface ContactInformationProp {
     email: string

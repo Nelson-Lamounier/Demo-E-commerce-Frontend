@@ -11,6 +11,8 @@ import DeliveryMethod from "./DeliveryMethod";
 import OrderSummary from "./OrderSummary";
 import Payment from "./Payment";
 
+
+
 import { selectCartTotal } from "@/store/cart/cart.selector";
 
 const Checkout = () => {

@@ -2,8 +2,8 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import CheckboxWithLink from "../../components/access.components/check-box";
-import InputField from "../../components/access.components/input-fields";
+import {CheckboxWithLink, InputField} from "@/components"
+
 
 import { signUpStart } from "../../store/user/user.slice";
 

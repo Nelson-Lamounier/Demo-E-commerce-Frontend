@@ -1,9 +1,8 @@
 import { ChangeEvent, FC } from "react";
-import { FormFields } from "@/types/checkout";
+import { FormFields } from "@types/Checkout";
 
 
-import InputField from "@components/access.components/input-fields";
-import SelectField from "@components/access.components/SelectFiled";
+import { SelectField, InputField } from "@/components";
 
 
 interface ShippingInfoProps {

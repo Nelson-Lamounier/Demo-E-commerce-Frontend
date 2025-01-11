@@ -3,7 +3,7 @@ import { Radio, RadioGroup } from "@headlessui/react";
 
 import { CheckCircleIcon } from "@heroicons/react/20/solid";
 
-import { deliveryMethods } from "@/types/checkout";
+import { deliveryMethods } from "@/types";
 
 interface DeliveryMethodProp {
   selectedDeliveryMethod: string;

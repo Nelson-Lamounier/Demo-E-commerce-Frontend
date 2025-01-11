@@ -6,7 +6,7 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 
-import { paymentMethods } from "@/types/checkout";
+import { paymentMethods } from "@/types";
 
 
 interface PaymentProps {

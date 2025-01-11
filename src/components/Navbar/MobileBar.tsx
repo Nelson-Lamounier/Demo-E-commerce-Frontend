@@ -19,7 +19,8 @@ import {
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 
-import navigationData from "@/types/navigation";
+import {navigationData} from "@/types";
+
 
 
 interface MobileNavbarProps {

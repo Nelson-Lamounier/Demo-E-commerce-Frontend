@@ -3,15 +3,13 @@ import React from "react";
 interface CheckboxWithLinkProps {
   checkboxId: string;
   checkboxName: string;
-  type:string;
+  type: string;
   label: string;
   linkText: string;
   linkHref: string;
   checked?: boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
-
-
 
 const CheckboxWithLink: React.FC<CheckboxWithLinkProps> = ({
   checkboxId,
@@ -61,9 +59,11 @@ const CheckboxWithLink: React.FC<CheckboxWithLinkProps> = ({
           {label}
         </label>
       </div>
-
       <div className="text-sm/6">
-        <a href={linkHref} className="font-semibold text-indigo-600 hover:text-indigo-500">
+        <a
+          href={linkHref}
+          className="font-semibold text-indigo-600 hover:text-indigo-500"
+        >
           {linkText}
         </a>
       </div>

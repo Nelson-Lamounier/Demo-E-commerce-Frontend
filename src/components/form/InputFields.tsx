@@ -1,4 +1,4 @@
-import  { ChangeEvent, FC } from "react";
+import { ChangeEvent, FC } from "react";
 
 interface InputFieldProps {
   name: string;
@@ -8,9 +8,9 @@ interface InputFieldProps {
   placeholder?: string;
   required?: boolean;
   autoComplete?: string;
+  className?
+  :string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-
-  
 }
 
 const InputField: FC<InputFieldProps> = ({
@@ -40,9 +40,9 @@ const InputField: FC<InputFieldProps> = ({
           autoComplete={autoComplete}
           placeholder={placeholder}
           onChange={onChange}
-          className=" border border-gray-300 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 hover:border-gray-500 focus-within:border-indigo-600 sm:text-sm/6 " 
+          className=" border border-gray-300 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 hover:border-gray-500 focus-within:border-indigo-600 sm:text-sm/6 "
         />
-      </div>      
+      </div>
     </div>
   );
 };

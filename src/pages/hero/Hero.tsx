@@ -1,4 +1,4 @@
-import heroData from "../types/hero";
+import {heroData} from "@/types";
 
 const Hero: React.FC = () => {
   return (

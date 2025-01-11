@@ -1,4 +1,4 @@
-import incentives from "@/types/incentive";
+import {incentives} from "@/types"
   
   
 const Incentive = () => {

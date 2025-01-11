@@ -1,9 +1,7 @@
 import { ChangeEvent, FC } from "react";
 
 import {
-  CheckCircleIcon,
   ChevronDownIcon,
-  TrashIcon,
 } from "@heroicons/react/20/solid";
 
 interface SelectFieldProp {

@@ -1,12 +1,8 @@
-import Hero from "../components/hero";
-import homeData from "../types/home";
+import { Hero, CategoryPreview, Incentive, PromoHeader } from "@/pages";
+import {homeData} from "@/types";
 import MotionEffect from "../utils/effect/motion";
-import CategoryPreview from "@/pages/category/CategoryPreview";
-import Incentive from "@/pages/Incentive";
-import Footer from "../components/footer.component";
 
-import PromoHeader from "@/pages/promo/PromoHeader";
-
+import {Footer} from "@components/index";
 
 const Home = () => {
   return (
@@ -21,8 +17,8 @@ const Home = () => {
         }}
       >
         <Hero />
-        <MotionEffect/>
-        <CategoryPreview/>
+        <MotionEffect />
+        <CategoryPreview />
         <PromoHeader />
         <Incentive />
         <Footer />
