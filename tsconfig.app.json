@@ -12,10 +12,9 @@
       "@components/*": ["src/components/*"],
       "@types/*": ["src/types/*"],
       "@hooks/*": ["src/hooks/*"],
+      "@pages/*": ["src/pages/*"],
       "@/*": ["src/*"] // Map @/ to src/
     },
-    
-    
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -31,7 +30,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false
- 
   },
   "include": ["src"]
 }
