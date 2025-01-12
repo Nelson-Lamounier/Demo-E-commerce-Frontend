@@ -1,4 +1,4 @@
-import footerNavigation from "../types/Footer.ts"
+import {footerNavigation} from "@/types"
 
 
 
