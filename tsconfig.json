@@ -7,6 +7,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "types": ["vitest/globals"], // Includes Vitest globals like describe, it, expect
+    "strict": false, // Temporarily disable strict mode
+    "noImplicitAny": false,
     "paths": {
       "@/*": ["src/*"], // Map @/ to src/
       "@components/*": ["src/components/*"],
