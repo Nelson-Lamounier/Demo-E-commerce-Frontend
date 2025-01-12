@@ -1,5 +1,5 @@
 import { ChangeEvent, FC } from "react";
-import { FormFields } from "@types/Checkout";
+import { FormFields } from "@/types";
 
 
 import { SelectField, InputField } from "@/components";

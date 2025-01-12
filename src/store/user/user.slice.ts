@@ -30,15 +30,15 @@ export const userSlice = createSlice({
     setCurrentUser(state, action: PayloadAction<User | null>) {
       state.currentUser = action.payload;
     },
-    checkUserSession(state) {
+    checkUserSession(_state) {
       // No changes needed in the state here, but you may trigger a side effect in middleware
     },
-    googleSignInStart(state, action: PayloadAction<string>) {
+    googleSignInStart(_state, _action: PayloadAction<string>) {
       // No direct state change, might be used in middleware
     },
     emailSignInStart(
-      state,
-      action: PayloadAction<{ email: string; password: string }>
+      _state,
+      _action: PayloadAction<{ email: string; password: string }>
     ) {
       // No direct state change, but passing payload (email, password)
     },
@@ -50,8 +50,8 @@ export const userSlice = createSlice({
       state.error = action.payload.message;
     },
     signUpStart(
-      state,
-      action: PayloadAction<{
+      _state,
+      _action: PayloadAction<{
         email: string;
         password: string;
         username: string;
@@ -69,13 +69,13 @@ export const userSlice = createSlice({
       state.currentUser = { ...user, ...additionalDetails };
       state.error = null;
     },
-    signUpFailed(state, action: PayloadAction<Error>) {},
-    signOutStart(state) {},
+    signUpFailed(_state, _action: PayloadAction<Error>) {},
+    signOutStart(_state) {},
     signOutSuccess(state) {
       state.currentUser = null;
       state.error = null;
     },
-    signOutFailed(state, action: PayloadAction<Error>) {},
+    signOutFailed(_state, _action: PayloadAction<Error>) {},
   },
 });
 

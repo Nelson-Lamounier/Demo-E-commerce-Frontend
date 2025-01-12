@@ -11,9 +11,4 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './src/setupTests.ts',
-  } as any, // Temporary workaround for TypeScript error
 });

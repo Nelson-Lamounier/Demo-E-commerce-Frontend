@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
 
-import { Category, CategoryMap, CategoryState } from "./category.slice";
+import { Category, CategoryMap,  } from "./category.slice";
 import { RootState } from "../store";
 
 // Selector to get the category slice

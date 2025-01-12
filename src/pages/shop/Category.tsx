@@ -7,7 +7,6 @@ import HeaderCatalog from "./CategoryHeader";
 
 import {
   selectCategoriesMap,
-  selectCategoriesIsLoading,
 } from "../../store/categories/category.selector";
 import ProductCard from "./ProductCard";
 
@@ -20,7 +19,6 @@ const Category = () => {
     keyof CategoryRouteParams
   >() as CategoryRouteParams;
   const categoriesMap = useSelector(selectCategoriesMap);
-  const isLoading = useSelector(selectCategoriesIsLoading);
   const [products, setProducts] = useState(categoriesMap[category]);
 
   useEffect(() => {

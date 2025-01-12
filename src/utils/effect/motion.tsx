@@ -35,7 +35,7 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
   const x = useTransform(baseX, (v) => `${wrap(-10, -25, v)}%`);
 
   const directionFactor = useRef<number>(1);
-  useAnimationFrame((t, delta) => {
+  useAnimationFrame(( delta) => {
     let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
     /**
@@ -80,8 +80,8 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
 const MotionEffect = () => {
   return (
     <section className="pb-[20vh] pt-[15vh] relative transform -rotate-3">
-      <ParallaxText baseVelocity={-5}>Framer Motion</ParallaxText>
-      <ParallaxText baseVelocity={5}>Scroll velocity</ParallaxText>
+      <ParallaxText baseVelocity={-5}>GymBS Gym</ParallaxText>
+      <ParallaxText baseVelocity={5}>GYM Clothing</ParallaxText>
     </section>
   );
 };

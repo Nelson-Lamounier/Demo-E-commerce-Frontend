@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+
 
 const storedOrder = localStorage.getItem("finalOrder");
 const finalOrderData = storedOrder ? JSON.parse(storedOrder) : null;
@@ -8,7 +8,7 @@ console.log("Retrieved final order from localStorage:", finalOrderData);
 
 const OrderConfirmation = () => {
   const [order, setOrder] = useState<any>(null);
-  const location = useLocation();
+
   // If you also pass data via navigate state, you can check location.state?.order too
 
   useEffect(() => {
@@ -34,24 +34,11 @@ const OrderConfirmation = () => {
   const {
     orderId,
     cartItems,
-    shippingAddress,
-    billingAddress,
-    paymentMethod,
     cardLast4,
-    shippingMethod,
-    shippingTime,
-    subtotal,
-    discount,
-    shippingFee,
-    total,
     cartTotal,
     shippingDetails,
-    phone,
     deliveryFee,
     selectedDeliveryMethod,
-    last4,
-    quantity
-
   } = order;
 
   return (
@@ -109,7 +96,9 @@ const OrderConfirmation = () => {
                     </div>
                     <div className="flex pl-4 sm:pl-6">
                       <dt className="font-medium text-gray-900">Price</dt>
-                      <dd className="ml-2 text-gray-700">€{product.price.toFixed(2)}</dd>
+                      <dd className="ml-2 text-gray-700">
+                        €{product.price.toFixed(2)}
+                      </dd>
                     </div>
                   </dl>
                 </div>
@@ -162,7 +151,8 @@ const OrderConfirmation = () => {
                   <p>VISA</p>
                   <p>
                     <span aria-hidden="true">••••</span>
-                    <span className="sr-only">Ending in </span>{cardLast4}
+                    <span className="sr-only">Ending in </span>
+                    {cardLast4}
                   </p>
                 </dd>
               </div>
@@ -197,7 +187,9 @@ const OrderConfirmation = () => {
               </div>
               <div className="flex justify-between">
                 <dt className="font-medium text-gray-900">Total</dt>
-                <dd className="text-gray-900">€{(cartTotal + deliveryFee).toFixed(2)}</dd>
+                <dd className="text-gray-900">
+                  €{(cartTotal + deliveryFee).toFixed(2)}
+                </dd>
               </div>
             </dl>
           </div>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { useState, useEffect } from "react";
-import navigationData from "@types/Navigation";
+import {navigationData} from "@/types";
 
 import { selectCurrentUser } from "@/store/user/user.selector";
 import { signOutStart } from "@/store/user/user.slice";
@@ -10,7 +10,7 @@ import { signOutStart } from "@/store/user/user.slice";
 const NavbarTop = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     // Synchronize authentication state with localStorage

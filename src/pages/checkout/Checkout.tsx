@@ -25,7 +25,7 @@ const Checkout = () => {
   });
   const cartTotal = useSelector(selectCartTotal); // Cart total from Redux store
   const currentUser = useSelector((state: any) => state.user.currentUser); // Current user
-  const { handlePayment, isProcessingPayment } = usePaymentHandler(
+  const { handlePayment,} = usePaymentHandler(
     cartTotal,
     currentUser
   );
