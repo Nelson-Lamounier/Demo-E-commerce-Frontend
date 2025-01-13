@@ -1,0 +1,3 @@
+[build]
+  command = "" # Skip the build step
+  publish = "dist" # Point to the folder with pre-built static files
