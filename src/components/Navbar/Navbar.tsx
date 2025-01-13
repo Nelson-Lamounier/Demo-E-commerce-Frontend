@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FC } from "react";
 import MobileNavbar from "./MobileBar";
 import NavbarTop from "./NavbarTop";
 import FlyoutMenus from "./FlyoutMenu";
@@ -11,7 +11,7 @@ import{Logo, LogoSmall} from "@/components";
 
 import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
 
-const Navbar: React.FC = () => {
+const Navbar: FC = () => {
   const [open, setOpen] = useState(false);
   return (
     <div className="bg-white uppercase font-funnel font-[300]">
