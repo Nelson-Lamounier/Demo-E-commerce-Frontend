@@ -9,6 +9,7 @@
     "incremental": true, // Enable incremental compilation
     "baseUrl": "./", // Root directory of your project
     "paths": {
+      "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@types/*": ["src/types/*"],
       "@hooks/*": ["src/hooks/*"],
@@ -16,7 +17,7 @@
       "@navbar/*": ["src/navbar/*"],
       "@logo/*": ["src/logo/*"],
       "@form/*": ["src/form/*"],
-      "@/*": ["src/*"] // Map @/ to src/
+
     },
 
     /* Bundler mode */

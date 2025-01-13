@@ -4,17 +4,4 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
-  "compilerOptions": {
-    "baseUrl": "./",
-    "types": ["vitest/globals"], // Includes Vitest globals like describe, it, expect
-    "strict": false, // Temporarily disable strict mode
-    "noImplicitAny": false,
-    "paths": {
-      "@/*": ["src/*"], // Map @/ to src/
-      "@components/*": ["src/components/*"],
-      "@types/*": ["src/types/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@pages/*": ["src/pages/*"]
-    }
-  }
 }
