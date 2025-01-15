@@ -4,7 +4,9 @@ import PromoHeader from "@/pages/promo/PromoHeader";
 import Hero from "@/pages/hero/Hero"
 import CategoryPreview from "@/pages/category/CategoryPreview"
 
-import {homeData} from "@/types";
+import homeData from "@/types/Home";
+
+
 import MotionEffect from "../utils/effect/motion";
 
 
