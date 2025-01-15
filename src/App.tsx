@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import ErrorBoundary from "./utils/error/error-boundary";
 
-import Shop from "./routes/Shop";
-import Home from "./routes/Home";
+import Shop from "@/routes/Shop";
+import Home from "@/routes/Home";
 
 import Navigation from "./routes/Navigation";
 
