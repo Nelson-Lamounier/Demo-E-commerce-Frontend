@@ -4,7 +4,10 @@ import { ChangeEvent, FC } from "react";
 import { FormFields } from "@/types/form/FormField";
 
 
-import { SelectField, InputField } from "@/components";
+
+
+import SelectField from "@/components/form/SelectFields";
+import InputField from "@/components/form/InputFields";
 
 
 interface ShippingInfoProps {

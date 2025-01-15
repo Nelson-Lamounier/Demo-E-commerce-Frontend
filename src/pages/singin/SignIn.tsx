@@ -5,7 +5,10 @@ import { GoogleLogin } from "@react-oauth/google";
 
 
 
-import {CheckboxWithLink, InputField} from "@/components"
+
+
+import CheckboxWithLink from "@/components/form/CheckBox";
+import InputField from "@/components/form/InputFields";
 
 import {
   emailSignInStart,
