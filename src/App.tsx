@@ -3,9 +3,17 @@ import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import ErrorBoundary from "./utils/error/error-boundary";
 
-import { Navigation, Shop, Home } from "@/routes";
+import Shop from "@/routes/Shop";
+import Home from "@/routes/Home";
 
-import { Checkout, OrderConfirmation, SignUpForm, SignInForm } from "@/pages";
+import Navigation from "@/routes/Navigation";
+
+
+import Checkout from "./pages/checkout/Checkout";
+import OrderConfirmation from "./pages/order/OrderConfirmation";
+import SignUpForm from "./pages/signup/SingUp";
+
+import SignInForm from "./pages/singin/SignIn";
 
 import { checkUserSession } from "@/store";
 
