@@ -1,50 +1,67 @@
-# React + TypeScript + Vite
+# Demo E-Commerce Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the repository for my Demo E-Commerce Website. This project demonstrates a fully functional e-commerce platform with a modern design, product catalog, shopping cart, and checkout features. It was developed as a portfolio project to highlight my skills in front-end and back-end web development.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
+1. [About](#about)
+2. [Features](#features)
+3. [Technologies Used](#technologies-used)
+4. [Installation and Setup](#installation-and-setup)
+5. [Testing](#testing)
+6. [Usage Notes](#usage-notes)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## About
 
-- Configure the top-level `parserOptions` property like this:
+The Demo E-Commerce Website showcases a clean and responsive design, providing users with an intuitive shopping experience. The platform includes dynamic product listings, a shopping cart, and a secure checkout process. It was created to demonstrate my ability to build scalable web applications with modern technologies.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Features
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **Dynamic Product Catalog**:
+  - Displays products with images, descriptions, prices, and categories.
+- **Shopping Cart**:
+  - Add, update, or remove items in the cart.
+  - Persistent cart using local storage.
+- **Checkout System**:
+  - Simulated payment integration.
+  - Form validation for user details.
+- **Responsive Design**:
+  - Optimized for desktop, tablet, and mobile devices.
+- **Search and Filter**:
+  - Search bar and category-based filtering for products.
+- **Admin Panel**:
+  - Manage product inventory (add, update, and delete products).
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+---
+
+## Technologies Used
+
+| Component          | Technologies                  |
+|---------------------|-------------------------------|
+| Frontend           | React, Tailwindcss       |
+| Backend            | Node.js, Express.js           |
+| Database           | MongoDB                       |
+| State Management   | Redux                         |
+| Authentication     | JSON Web Tokens (JWT)         |
+| Tools              | Jest, React Testing Library   |
+
+---
+
+## Installation and Setup
+
+To set up the project locally, follow these steps:
+
+### Prerequisites
+- **Node.js** (v16 or higher)
+- **MongoDB** (local or cloud instance)
+
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/username/demo-ecommerce.git
+   cd demo-ecommerce
