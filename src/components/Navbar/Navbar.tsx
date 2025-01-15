@@ -5,7 +5,8 @@ import FlyoutMenus from "./FlyoutMenu";
 import MobileSearchBar from "./MobileSearchBar";
 import ShoppingCard from "./ShoppingCart";
 
-import{Logo, LogoSmall} from "@/components";
+import Logo from "../logo/Logo";
+import LogoSmall from "../logo/LogoSm";
 
 
 

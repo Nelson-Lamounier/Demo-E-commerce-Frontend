@@ -11,7 +11,9 @@ import homeData from "@/types/Home";
 import MotionEffect from "../utils/effect/motion";
 
 
-import {Footer} from "@components/index";
+
+
+import Footer from "@/components/Footer";
 
 const Home = () => {
   return (
