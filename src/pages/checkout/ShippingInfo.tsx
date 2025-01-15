@@ -1,5 +1,7 @@
 import { ChangeEvent, FC } from "react";
-import { FormFields } from "@/types";
+
+
+import { FormFields } from "@/types/form/FormField";
 
 
 import { SelectField, InputField } from "@/components";

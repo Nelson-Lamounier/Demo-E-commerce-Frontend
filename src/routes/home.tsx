@@ -1,6 +1,12 @@
-import { Hero, CategoryPreview, Incentive, PromoHeader } from "@/pages";
+import Incentive from "@/pages/incentive/Incentive";
+import PromoHeader from "@/pages/promo/PromoHeader";
+
+import Hero from "@/pages/hero/Hero"
+import CategoryPreview from "@/pages/category/CategoryPreview"
+
 import {homeData} from "@/types";
 import MotionEffect from "../utils/effect/motion";
+
 
 import {Footer} from "@components/index";
 

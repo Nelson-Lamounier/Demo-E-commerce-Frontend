@@ -1,7 +1,7 @@
 import { FC, useEffect,  useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import {catalogHeader} from "@/types";
+import catalogHeader from "@/types/CatalogHeader"
 
 const HeaderCatalog: FC  = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
