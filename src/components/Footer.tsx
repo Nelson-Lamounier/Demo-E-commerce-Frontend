@@ -1,4 +1,6 @@
-import {footerNavigation} from "@/types"
+
+
+import footerNavigation from "@/types/Footer";
 
 
 
