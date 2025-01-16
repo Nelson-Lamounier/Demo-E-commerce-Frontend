@@ -7,6 +7,7 @@ import navigationData from "@/types/Navigation";
 import { selectCurrentUser } from "@/store/user/user.selector";
 import { signOutStart } from "@/store/user/user.slice";
 
+// Nothing to update
 const NavbarTop = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);

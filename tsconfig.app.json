@@ -8,6 +8,7 @@
     "skipLibCheck": true,
     "incremental": true, // Enable incremental compilation
     "baseUrl": "./", // Root directory of your project
+    "noEmitOnError": false,
     "paths": {
       "@/*": ["src/*"],
       "@components/*": ["src/components/*"],

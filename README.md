@@ -5,6 +5,7 @@ Welcome to the repository for my Demo E-Commerce Website. This project demonstra
 ---
 
 ## Table of Contents
+
 1. [About](#about)
 2. [Features](#features)
 3. [Technologies Used](#technologies-used)
@@ -41,14 +42,14 @@ The Demo E-Commerce Website showcases a clean and responsive design, providing u
 
 ## Technologies Used
 
-| Component          | Technologies                  |
-|---------------------|-------------------------------|
-| Frontend           | React, Tailwindcss       |
-| Backend            | Node.js, Express.js           |
-| Database           | MongoDB                       |
-| State Management   | Redux                         |
-| Authentication     | JSON Web Tokens (JWT)         |
-| Tools              | Jest, React Testing Library   |
+| Component        | Technologies                |
+| ---------------- | --------------------------- |
+| Frontend         | React, Tailwindcss          |
+| Backend          | Node.js, Express.js         |
+| Database         | MongoDB                     |
+| State Management | Redux                       |
+| Authentication   | JSON Web Tokens (JWT)       |
+| Tools            | Jest, React Testing Library |
 
 ---
 
@@ -57,11 +58,14 @@ The Demo E-Commerce Website showcases a clean and responsive design, providing u
 To set up the project locally, follow these steps:
 
 ### Prerequisites
+
 - **Node.js** (v16 or higher)
 - **MongoDB** (local or cloud instance)
 
 ### Steps
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/username/demo-ecommerce.git
    cd demo-ecommerce
+   ```
