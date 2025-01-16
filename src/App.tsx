@@ -6,7 +6,7 @@ import ErrorBoundary from "./utils/error/error-boundary";
 import Shop from "@/routes/Shop";
 import Home from "@/routes/Home";
 
-import Navigation from "./routes/Navigation";
+import Navigation from "@/routes/Navigation";
 
 
 import Checkout from "./pages/checkout/Checkout";
