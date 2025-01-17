@@ -9,7 +9,7 @@ const CartDropdown: FC = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const navigate = useNavigate();
-  console.log("Cart items from selector:", cartItems);
+
 
   const goToCheckoutHandler = () => {
     navigate("/checkout");

@@ -82,7 +82,7 @@ export const cartSlice = createSlice({
     },
     addItemToCart(state, action: PayloadAction<CategoryItem>) {
       state.cartItems = addCartItem(state.cartItems, action.payload);
-      console.log("Cart State after adding item:", state.cartItems);
+
     },
     removeItemFromCart(state, action: PayloadAction<CartItem>) {
       state.cartItems = removeCartItem(state.cartItems, action.payload);

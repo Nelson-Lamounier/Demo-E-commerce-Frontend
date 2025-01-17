@@ -66,7 +66,6 @@ const SignUpForm = () => {
   };
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(`Checkbox changed: ${e.target.checked}`);
   };
 
   return (

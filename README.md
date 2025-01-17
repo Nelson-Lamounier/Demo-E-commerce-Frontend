@@ -1,71 +1,99 @@
-# Demo E-Commerce Website
+# 🛒 Demo E-Commerce Frontend  
 
-Welcome to the repository for my Demo E-Commerce Website. This project demonstrates a fully functional e-commerce platform with a modern design, product catalog, shopping cart, and checkout features. It was developed as a portfolio project to highlight my skills in front-end and back-end web development.
-
----
-
-## Table of Contents
-
-1. [About](#about)
-2. [Features](#features)
-3. [Technologies Used](#technologies-used)
-4. [Installation and Setup](#installation-and-setup)
-5. [Testing](#testing)
-6. [Usage Notes](#usage-notes)
+This repository contains the **frontend code** for the **Demo E-Commerce Website**, a modern online shopping platform with product listings, a shopping cart, secure checkout, and authentication. The UI is built with **React, Redux, and TypeScript**, designed for a seamless and responsive shopping experience.
 
 ---
 
-## About
+## 🔗 Live Application  
 
-The Demo E-Commerce Website showcases a clean and responsive design, providing users with an intuitive shopping experience. The platform includes dynamic product listings, a shopping cart, and a secure checkout process. It was created to demonstrate my ability to build scalable web applications with modern technologies.
-
----
-
-## Features
-
-- **Dynamic Product Catalog**:
-  - Displays products with images, descriptions, prices, and categories.
-- **Shopping Cart**:
-  - Add, update, or remove items in the cart.
-  - Persistent cart using local storage.
-- **Checkout System**:
-  - Simulated payment integration.
-  - Form validation for user details.
-- **Responsive Design**:
-  - Optimized for desktop, tablet, and mobile devices.
-- **Search and Filter**:
-  - Search bar and category-based filtering for products.
-- **Admin Panel**:
-  - Manage product inventory (add, update, and delete products).
+👉 **Live Demo**: [Demo E-Commerce Website](https://gymbs-ecommerceapp.netlify.app/)
+👉 **Backend Repository**: [GitHub - demo-ecommerce-backend](https://github.com/Nelson-Lamounier/Demo-E-commerce-Backend)  
 
 ---
 
-## Technologies Used
+## 🛠️ Technologies Used  
 
-| Component        | Technologies                |
-| ---------------- | --------------------------- |
-| Frontend         | React, Tailwindcss          |
-| Backend          | Node.js, Express.js         |
-| Database         | MongoDB                     |
-| State Management | Redux                       |
-| Authentication   | JSON Web Tokens (JWT)       |
-| Tools            | Jest, React Testing Library |
+| Component         | Technologies                  |
+|------------------|--------------------------------|
+| **Frontend**    | React, TypeScript, Redux       |
+| **Styling**     | TailwindCSS        |
+| **State Mgmt**  | Redux Toolkit, React Query    |
+| **Authentication** | Google OAuth 2.0, JWT       |
+| **Payments**    | Stripe API                     |
+| **API**        | REST API (Backend)              |
+| **Deployment**  | Netlify,  AWS S3  |
 
 ---
 
-## Installation and Setup
+## 📌 Key Features  
 
-To set up the project locally, follow these steps:
+- **Product Listings**: Dynamic product catalog fetched from the backend.  
+- **Shopping Cart**: Add, remove, and update items with local storage persistence.  
+- **User Authentication**: Google OAuth 2.0 for secure sign-in.  
+- **Checkout & Payments**: Stripe API for processing transactions.  
+- **Order Tracking**: View past orders and statuses.  
+- **Fully Responsive**: Optimized for desktop, tablet, and mobile devices.  
 
-### Prerequisites
+---
 
-- **Node.js** (v16 or higher)
-- **MongoDB** (local or cloud instance)
+## 🎨 UI/UX Design  
 
-### Steps
+The frontend is designed for an **intuitive and user-friendly shopping experience**, with:  
+- **Minimalist, clean UI** using TailwindCSS & Bootstrap.  
+- **Smooth animations and transitions** for an engaging experience.  
+- **Optimized performance** with lazy loading and caching strategies.  
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/username/demo-ecommerce.git
-   cd demo-ecommerce
-   ```
+---
+
+## 📌 API & Backend Integration  
+
+This frontend connects to the **backend API** for data retrieval, authentication, and payment processing.  
+👉 **Backend Repository**: [GitHub - demo-ecommerce-backend](#)  
+
+---
+
+## ⚙️ Architecture Overview  
+
+This **React + TypeScript** frontend follows a modular structure:  
+
+📂 `src/`  
+- 📁 `components/` → Reusable UI components  
+- 📁 `pages/` → Main route pages (Home, Product, Cart, Checkout, etc.)  
+- 📁 `types/` → TypeScript type definitions (Home, Product, Cart, Checkout, etc.)  
+- 📁 `store/` → Redux Toolkit state management  
+- 📁 `api/` → API requests using Axios  
+- 📁 `styles/` → Global styling and themes  
+
+---
+
+## 🚀 Deployment  
+
+The frontend is hosted on **Netlify (or AWS S3 & CloudFront)** for fast and scalable performance.  
+👉 **Live URL**: [Demo E-Commerce Website](https://gymbs-ecommerceapp.netlify.app/)  
+
+---
+
+## ⚠️ Usage Notes  
+
+> 🚀 **This repository is for demonstration purposes only.** It is meant to showcase the **frontend code and structure**.  
+> The **backend API** is already deployed, so recruiters can access the **live application** without needing to set up anything locally.  
+
+If you're interested in learning more about this project, feel free to reach out!  
+
+---
+
+## 🎯 Why This README is Effective  
+
+✅ **Concise & Professional**: Focuses on what matters—technologies, features, and API connections.  
+✅ **Live Demo Link**: Recruiters can **directly access the app** without setting it up.  
+✅ **Backend Repository Link**: Ensures recruiters understand the **full-stack** implementation.  
+✅ **Clean Structure & UI Emphasis**: Highlights frontend **code structure** and **design philosophy**.  
+
+---
+
+### 🚀 **Next Steps**
+- ✅ Update your **frontend repository** README with this refined version.  
+- ✅ Ensure your **backend README** links back to this frontend repo.  
+- ✅ Keep both repositories **clean and modular**.  
+
+Would you like me to help **review your GitHub structure** to make sure everything is well-organized? 🚀

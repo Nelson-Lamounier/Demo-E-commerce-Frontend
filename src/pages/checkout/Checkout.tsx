@@ -144,7 +144,7 @@ const Checkout = () => {
 
         // 2) Store in localStorage
         localStorage.setItem("finalOrder", JSON.stringify(finalOrderData));
-        console.log("Storing final order in localStorage:", finalOrderData);
+
 
         // 3) Navigate + Clear
         navigate("/order-confirmation");
