@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 
 
-const storedOrder = localStorage.getItem("finalOrder");
-const finalOrderData = storedOrder ? JSON.parse(storedOrder) : null;
 
-console.log("Retrieved final order from localStorage:", finalOrderData);
 
 const OrderConfirmation = () => {
   const [order, setOrder] = useState<any>(null);
