@@ -1,3 +1,5 @@
+/** @format */
+
 import { Fragment, Dispatch, SetStateAction, FC } from "react";
 import { Link } from "react-router-dom";
 
@@ -12,28 +14,26 @@ import {
   TabPanels,
 } from "@headlessui/react";
 
-import {
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
-
-import {navigationData} from "@/types";
-
-
+import { navigationData } from "@/types";
 
 interface MobileNavbarProps {
-    open: boolean;
-    setOpen: Dispatch<SetStateAction<boolean>>
+  open: boolean;
+  setOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const MobileNavbar: FC<MobileNavbarProps> = ({open, setOpen}) => {
-
+const MobileNavbar: FC<MobileNavbarProps> = ({ open, setOpen }) => {
   return (
     <>
       {/* Mobile menu */}
-      <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
+      <Dialog
+        open={open}
+        onClose={setOpen}
+        className="relative z-40 lg:hidden"
+      >
         <DialogBackdrop
           transition
           className="fixed inset-0 bg-black/25 transition-opacity duration-300 ease-linear data-closed:opacity-0"
@@ -51,7 +51,10 @@ const MobileNavbar: FC<MobileNavbarProps> = ({open, setOpen}) => {
                 className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
               >
                 <span className="sr-only">Close menu</span>
-                <XMarkIcon aria-hidden="true" className="size-6" />
+                <XMarkIcon
+                  aria-hidden="true"
+                  className="size-6"
+                />
               </button>
             </div>
 
@@ -77,7 +80,10 @@ const MobileNavbar: FC<MobileNavbarProps> = ({open, setOpen}) => {
                   >
                     <div className="grid grid-cols-2 gap-x-4 gap-y-10">
                       {category.featured.map((item) => (
-                        <div key={item.name} className="group relative">
+                        <div
+                          key={item.name}
+                          className="group relative"
+                        >
                           <img
                             alt={item.imageAlt}
                             src={item.imageSrc}
@@ -109,7 +115,10 @@ const MobileNavbar: FC<MobileNavbarProps> = ({open, setOpen}) => {
 
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               {navigationData.pages.map((page) => (
-                <div key={page.name} className="flow-root">
+                <div
+                  key={page.name}
+                  className="flow-root"
+                >
                   <a
                     href={page.href}
                     className="-m-2 block p-2 font-medium text-gray-900"
